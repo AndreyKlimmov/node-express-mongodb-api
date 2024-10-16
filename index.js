@@ -7,13 +7,12 @@ require('dotenv').config();
 const PORT = process.env.PORT || 8000;
 const USER = process.env.USER_MONGO_DB;
 const PASSWORD = process.env.PASSWORD_MONGO_DB;
-console.log(USER);
 
 // Middleware
 app.use(bodyParser.json());
 
 // MongoDB Connection
-mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@cluster0.psnbsei.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0\'`);
+mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@cluster0.psnbsei.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0\'`, {dbName: 'balance'});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
