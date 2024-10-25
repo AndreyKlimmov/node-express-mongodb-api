@@ -15,7 +15,7 @@ const Evm = require('../models/evm');
 // });
 
 // Get all items
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const items = await Evm.aggregate([
             {
