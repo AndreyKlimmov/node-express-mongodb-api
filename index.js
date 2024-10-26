@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
@@ -9,6 +10,7 @@ const USER = process.env.USER_MONGO_DB;
 const PASSWORD = process.env.PASSWORD_MONGO_DB;
 
 // Middleware
+app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB Connection
